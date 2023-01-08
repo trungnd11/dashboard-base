@@ -8,7 +8,7 @@ const { Title } = Typography;
 export default function HeaderBar() {
   return (
     <HeaderStyle>
-      <Title level={3}>Bank Gateway</Title>
+      <Title level={3}>Dashboard</Title>
       <div className="infomation">
         <SettingMenu />
       </div>

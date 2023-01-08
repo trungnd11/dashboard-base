@@ -25,19 +25,19 @@ export const ConfirmAlert = (props: {
     <>
       {
         Modal.confirm({
-          title: title ?? "Xác nhận",
+          title: title ?? "Comfirm",
           content,
           icon: typeConfirm === TypeConfirm.SUCCESS ? <CheckCircleOutlined /> : <WarningOutlined />,
           okText: (
             <Space>
               <CheckOutlined />
-              <span>Đồng ý</span>
+              <span>Agree</span>
             </Space>
           ),
           cancelText: (
             <Space>
               <CloseOutlined />
-              <span>Đóng</span>
+              <span>Cancel</span>
             </Space>
           ),
           centered: true,
