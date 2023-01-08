@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { zoomIn } from "react-animations";
-import { BorderRadius, Color } from "../../component/variable";
+import { BorderRadius, Color, Devices } from "../../component/variable";
 
 const AnimateBgLogin = keyframes`${zoomIn}`;
 
@@ -21,10 +21,15 @@ export const LoginContainer = styled.div`
     position: absolute;
     border-radius: ${BorderRadius.border6};
     display: flex;
-    max-width: 40%;
+    width: 40%;
     overflow: hidden;
     animation: 0.6s ${AnimateBgLogin} forwards;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+    @media ${Devices.mobileL} {
+      width: 90%;
+      min-height: 50%;
+    }
 
     .bg-image {
       flex-basis: 50%;
@@ -33,6 +38,10 @@ export const LoginContainer = styled.div`
         width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
+      }
+
+      @media ${Devices.mobileL} {
+        display: none;
       }
     }
 
@@ -51,6 +60,10 @@ export const LoginContainer = styled.div`
       
       form {
         flex-basis: 100%;
+      }
+
+      @media ${Devices.mobileL} {
+        padding: .5rem;
       }
     }
 
