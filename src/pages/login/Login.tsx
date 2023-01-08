@@ -37,7 +37,7 @@ export default function Login() {
             labelAlign="left"
             colon={false}
           >
-            <Title className="title" level={3}>Đăng nhập</Title>
+            <Title className="title" level={3}>Login</Title>
             <Form.Item
               label=""
               name="username"
@@ -57,7 +57,7 @@ export default function Login() {
             </Form.Item>
             <div className="button">
               <Button type="primary" htmlType="submit" loading={isLoading}>
-                Đăng nhập
+                Login
               </Button>
             </div>
           </Form>

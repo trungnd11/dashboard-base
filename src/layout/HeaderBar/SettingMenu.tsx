@@ -19,7 +19,7 @@ const items: MenuProps["items"] = [
     label: (
       <Space>
         <InfoCircleOutlined />
-        <Text>Thông tin tài khoản</Text>
+        <Text>Infomation Account</Text>
       </Space>
     ),
     key: Key.ONE
@@ -28,7 +28,7 @@ const items: MenuProps["items"] = [
     label: (
       <Space>
         <SafetyOutlined />
-        <Text>Đổi mật khẩu</Text>
+        <Text>Change password</Text>
       </Space>
     ),
     key: Key.TWO
@@ -40,7 +40,7 @@ const items: MenuProps["items"] = [
     label: (
       <Space>
         <LogoutOutlined style={{ color: Color.red }} />
-        <Text type="danger">Đăng xuất</Text>
+        <Text type="danger">Logout</Text>
       </Space>
     ),
     key: Key.THREE
@@ -54,7 +54,7 @@ export default function SettingMenu() {
   const onClick: MenuProps["onClick"] = ({ key }) => {
     key === Key.THREE &&
       ConfirmAlert({
-        content: "Bạn có muốn đăng xuất không?",
+        content: "Are you sure?",
         handleOk: () => {
           dispatch(logout());
         }

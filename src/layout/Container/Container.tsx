@@ -39,6 +39,7 @@ export default function Container() {
           <SiderBar />
           {React.createElement(collapsed ? RightOutlined : LeftOutlined, {
             className: "trigger",
+            id: "trigger",
             onClick: () => dispatch(toggleSiderBar()),
           })}
         </Sider>
@@ -48,7 +49,7 @@ export default function Container() {
               <ContentWapper />
             </div>
           </Content>
-          <Footer id="footer">©2022 Created by Trungg</Footer>
+          <Footer id="footer">©2022 Created by <b>Trungg</b></Footer>
         </Layout>
       </Layout>
     </ContainerStyle>
