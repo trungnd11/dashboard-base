@@ -1,7 +1,6 @@
+import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Button, Col, Form, Input, Row } from "antd";
-
-import React from "react";
 
 export default function FormInstance() {
   const { control, handleSubmit, formState: { errors } } = useForm({

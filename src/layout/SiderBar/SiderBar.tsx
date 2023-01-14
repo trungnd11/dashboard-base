@@ -5,6 +5,7 @@ import routers from "../../routers/routers";
 import { RoutersModel } from "../../model/routersModel/RoutersModel";
 import { NavLink, useLocation } from "react-router-dom";
 import DynamicIcon from "../../component/icon/DynamicIcon";
+import { SiderBarContainer } from "./siderBarStyle";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -100,7 +101,7 @@ export default function SiderBar() {
   }, [selected]);
 
   return (
-    <>
+    <SiderBarContainer>
       <Menu
         theme="dark"
         mode="inline"
@@ -110,6 +111,6 @@ export default function SiderBar() {
         onSelect={onSelectItem}
         selectedKeys={selected}
       />
-    </>
+    </SiderBarContainer>
   );
 }

@@ -14,6 +14,7 @@ export const ContainerStyle = styled.div`
     left: 0px;
     top: ${HeaderComponent.height};
     bottom: 0px;
+    overflow-x: hidden;
 
     .trigger {
       position: absolute;
