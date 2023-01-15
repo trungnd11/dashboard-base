@@ -6,6 +6,7 @@ import Breadcrumbs from "../../component/breadcrumb/Breadcrumbs";
 import routers from "../../routers/routers";
 import { useAppSelector } from "../../store/reduxHook";
 import { SiderBarStore } from "../../store/sider/sider";
+import { ContentLoading } from "./contentWapperStyle";
 import { mapRoutersPage } from "./handleContentWapper";
 
 export default function ContentWapper() {
@@ -40,9 +41,9 @@ export default function ContentWapper() {
       <Breadcrumbs />
       <Suspense
         fallback={
-          <div className="loading">
+          <ContentLoading className="loading">
             <Spin />
-          </div>
+          </ContentLoading>
         }
       >
         <Routes>

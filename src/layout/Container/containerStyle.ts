@@ -38,6 +38,7 @@ export const ContainerStyle = styled.div`
       min-height: 100%;
       background-color: ${Color.grayBland};
       padding: 1rem;
+      position: relative;
 
       .description-content {
         background-color: ${Color.white};

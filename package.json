@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
+    "@hookform/resolvers": "^2.9.10",
     "@loadable/component": "^5.15.2",
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -29,7 +30,8 @@
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
     "typescript": "*",
-    "web-vitals": "^2.1.0"
+    "web-vitals": "^2.1.0",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",

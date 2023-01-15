@@ -1,35 +1,56 @@
-import React from "react";
-import { Controller, useForm } from "react-hook-form";
-import { Button, Col, Form, Input, Row } from "antd";
+import React, { useMemo, useState } from "react";
+import { useForm } from "react-hook-form";
+import { Button, Col, Form, Row, Space, Typography } from "antd";
+import { yupResolver } from "@hookform/resolvers/yup";
+import FormInput from "../../component/form/formInput/FormInput";
+import { schema } from "./dataValidate";
+import { LoginModel } from "../../model/authorModel/LoginModel";
 
 export default function FormInstance() {
-  const { control, handleSubmit, formState: { errors } } = useForm({
-    defaultValues: {
-      email: "",
-    }
+  const [valueForm, setValueForm] = useState<LoginModel>();
+  const { handleSubmit, control, formState, reset } = useForm<LoginModel>({
+    resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: { email: string }) => console.log(data);
+  const formInputProp = useMemo(() => ({
+    control,
+    formState,
+    schema
+  }), [formState, control]);
+
+  const onSubmit = (data: LoginModel) => {
+    setValueForm(data);
+    reset();
+  };
 
   return (
-    <Row>
+    <Row justify="center">
       <Col span={6}>
+        <Typography.Title level={2}> Form Login </Typography.Title>
         <Form onFinish={handleSubmit(onSubmit)}>
-          <Form.Item
-            label="Email"
-            validateStatus={errors?.email ? "error" : "success"}
-            help={errors?.email ? <span>{errors?.email?.message}</span> : null}
-          >
-            <Controller
-              name="email"
-              defaultValue=""
-              control={control}
-              rules={{ required: "Email is required", maxLength: { value: 5, message: "Email is long" } }}
-              render={({ field }) => (
-                <Input {...field} />
-              )} />
-          </Form.Item>
-          <Button htmlType="submit">Submit</Button>
+          <FormInput
+            name="username"
+            label="Tên đăng nhập"
+            { ...formInputProp }
+          />
+          <FormInput
+            name="password"
+            label="Mật khẩu"
+            {...formInputProp }
+          />
+          <FormInput
+            name="remember"
+            label="Nhớ mật khẩu"
+            {...formInputProp }
+            typeInput="checkbox"
+          />
+          <Space>
+            <Button htmlType="submit" type="primary">Submit</Button>
+            <Typography.Text> {JSON.stringify(valueForm)} </Typography.Text>
+            {
+              valueForm && <Button danger onClick={() => setValueForm(() => undefined)}>Xóa</Button>
+            }
+          </Space>
         </Form>
       </Col>
     </Row>
