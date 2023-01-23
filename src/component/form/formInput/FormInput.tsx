@@ -9,7 +9,8 @@ interface Props {
   formState?: any
   control?: any
   typeInput?: "input" | "select" | "date-picker" | "checkbox" | "radio"
-  schema?: any
+  schema: any
+  children?: ReactNode
 }
 
 const formItemLayout = {
@@ -23,11 +24,11 @@ const formItemLayout = {
   },
 };
 
-export default function FormInput({ name, label, formState: { errors }, control, typeInput, schema }: Props) {
+export default function FormInput({ name, label, formState: { errors }, control, typeInput, schema, children }: Props) {
   const ItemCompponent = useMemo(() => DynamicComponent(typeInput ?? "input"), [typeInput]);
 
   return (
-    <div>
+    <>
       <Form.Item
         { ...formItemLayout }
         label={label}
@@ -40,11 +41,13 @@ export default function FormInput({ name, label, formState: { errors }, control,
         <Controller
           name={name}
           control={control}
-          render={({ field }) => (
-            <ItemCompponent {...field} status={errors[name] ? "error" : ""} />
-          )}
+          render={({ field }) => {
+            return (
+              <ItemCompponent {...field} status={errors[name] ? "error" : ""} />
+            );
+          }}
         />
       </Form.Item>
-    </div>
+    </>
   );
 }

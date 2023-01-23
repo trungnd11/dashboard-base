@@ -3,7 +3,7 @@ import { generateId } from "../commom/ulties";
 import { RoutersModel } from "../model/routersModel/RoutersModel";
 
 const Home = lazy(async () => await import("../pages/home/Home"));
-const Form = lazy(async () => await import("../pages/form/FormInstance"));
+const Form = lazy(async () => await import("../pages/form/index"));
 
 const routers: RoutersModel[] = [
   {
