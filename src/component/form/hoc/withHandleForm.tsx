@@ -10,14 +10,14 @@ interface Props extends FieldValues {
   control?: Control<FieldValues, any>
   formState?: FormState<FieldValues>
   onHandleSubmit?: (data: FieldValues) => void
-  schema: AnyObjectSchema | Lazy<any, unknown>
+  schema?: AnyObjectSchema | Lazy<any, unknown>
 }
 
-export default function withHandleForm(Component: FC<Props>) {
+export default function withHandleForm(Component: FC<Props>, schemaObj: AnyObjectSchema | Lazy<any, unknown>) {
   const HandleComponent: FC<Props> = (props, ref) => {
-    const { onHandleSubmit, schema } = props;
+    const { onHandleSubmit } = props;
     const { control, formState, handleSubmit } = useForm({
-      resolver: yupResolver(schema),
+      resolver: yupResolver(schemaObj),
     });
 
     const onSubmit = (data: FieldValues) => {
@@ -31,7 +31,7 @@ export default function withHandleForm(Component: FC<Props>) {
         <Component
           control={control}
           formState={formState}
-          schema={schema}
+          schema={schemaObj}
         />
       </Form>
     );

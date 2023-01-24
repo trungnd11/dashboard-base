@@ -1,5 +1,4 @@
 import React from "react";
-import { schema } from "./dataValidate";
 import FormLogin from "./FormLogin";
 
 export default function index() {
@@ -11,7 +10,6 @@ export default function index() {
     <>
       <FormLogin
         onHandleSubmit={(data: any) => handleSubmit(data)}
-        schema={schema}
       />
     </>
   );

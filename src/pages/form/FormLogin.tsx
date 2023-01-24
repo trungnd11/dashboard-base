@@ -5,11 +5,12 @@ import withHandleForm from "../../component/form/hoc/withHandleForm";
 import { Control, FieldValues, FormState } from "react-hook-form/dist/types";
 import { AnyObjectSchema } from "yup";
 import Lazy from "yup/lib/Lazy";
+import { schema } from "./dataValidate";
 
 function FormLogin(props: {
   control?: Control<FieldValues, any>
   formState?: FormState<FieldValues>
-  schema: AnyObjectSchema | Lazy<any, unknown>
+  schema?: AnyObjectSchema | Lazy<any, unknown>
 }) {
   const { control, formState, schema } = props;
 
@@ -45,4 +46,4 @@ function FormLogin(props: {
   );
 }
 
-export default withHandleForm(FormLogin);
+export default withHandleForm(FormLogin, schema);
