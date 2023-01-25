@@ -7,8 +7,6 @@ export default function Home() {
     setTitle("Trang chủ");
   }, []);
 
-  console.log("OK");
-
   return (
     <div>
       <Result

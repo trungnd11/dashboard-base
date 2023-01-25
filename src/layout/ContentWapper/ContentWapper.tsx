@@ -7,7 +7,7 @@ import routers from "../../routers/routers";
 import { useAppSelector } from "../../store/reduxHook";
 import { SiderBarStore } from "../../store/sider/sider";
 import { ContentLoading } from "./contentWapperStyle";
-import { mapRoutersPage } from "./handleContentWapper";
+import { handleAutoWidth, mapRoutersPage } from "./handleContentWapper";
 
 export default function ContentWapper() {
   const { collapsed } = useAppSelector(SiderBarStore);
@@ -18,22 +18,7 @@ export default function ContentWapper() {
   );
 
   useEffect(() => {
-    const sider = document.getElementById("sider");
-    const content = document.getElementById("content");
-    const trigger = document.getElementById("trigger");
-    const breadscumb = document.getElementById("breadsumb-wapper");
-    const rootWidth = window.innerWidth;
-    if (sider && content && trigger && breadscumb) {
-      new ResizeObserver((entries) => {
-        trigger.style.width = `${sider.offsetWidth}px`;
-        breadscumb.style.width = `${rootWidth - sider.offsetWidth}px`;
-        content.style.marginLeft = `${sider.offsetWidth}px`;
-        content.style.marginTop = `${breadscumb.offsetHeight + 64}px`;
-        if (collapsed) {
-          trigger.style.justifyContent = "center";
-        }
-      }).observe(sider);
-    }
+    handleAutoWidth(collapsed);
   }, [collapsed]);
 
   return (
@@ -42,7 +27,7 @@ export default function ContentWapper() {
       <Suspense
         fallback={
           <ContentLoading className="loading">
-            <Spin />
+            <Spin tip="Loading, please..." />
           </ContentLoading>
         }
       >
