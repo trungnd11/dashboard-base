@@ -6,7 +6,7 @@ import { Control, FieldValues, FormState } from "react-hook-form/dist/types";
 import { AnyObjectSchema } from "yup";
 import Lazy from "yup/lib/Lazy";
 
-interface Props extends FieldValues {
+export interface Props extends FieldValues {
   control?: Control<FieldValues, any>
   formState?: FormState<FieldValues>
   onHandleSubmit?: (data: FieldValues) => void
