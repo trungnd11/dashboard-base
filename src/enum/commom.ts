@@ -17,3 +17,7 @@ export enum TypeConfirm {
   WARNING = "warning",
   NOTIFICATION = "notification"
 }
+
+export enum TypeResponse {
+  LIST = "list"
+}
