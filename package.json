@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@loadable/component": "^5.15.2",
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -14,11 +15,16 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
     "antd": "^5.0.1",
+    "axios": "^1.2.2",
     "dayjs": "^1.11.6",
     "node-sass": "^8.0.0",
     "react": "^18.2.0",
+    "react-animations": "^1.0.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.41.5",
+    "react-query": "^3.39.2",
     "react-redux": "^8.0.5",
+    "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
     "typescript": "*",
@@ -52,6 +58,8 @@
     ]
   },
   "devDependencies": {
+    "@types/loadable__component": "^5.13.4",
+    "@types/react-animations": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "eslint": "^8.0.1",
     "eslint-config-standard-with-typescript": "^23.0.0",

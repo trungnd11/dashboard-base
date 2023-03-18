@@ -20,6 +20,7 @@ export const ContainerStyle = styled.div`
       bottom: 0;
       padding: 1rem;
       width: 100%;
+      justify-content: center;
 
       svg {
         color: ${Color.white};
